@@ -1,539 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy S7 Edge Settings</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        body {
-            background-color: #f8f8f8;
-            color: #212121;
-            line-height: 1.4;
-        }
-        
-        .header {
-            background-color: #4285f4;
-            color: white;
-            padding: 16px;
-            font-size: 20px;
-            font-weight: 500;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-        }
-        
-        .header .back-btn {
-            margin-right: 16px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        .search-bar {
-            padding: 8px 16px;
-            background-color: #f8f8f8;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .search-container {
-            background-color: white;
-            border-radius: 3px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-        }
-        
-        .search-icon {
-            color: #757575;
-            margin-right: 8px;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 12px 0;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            background: transparent;
-        }
-        
-        .settings-list {
-            background-color: white;
-            margin-bottom: 8px;
-        }
-        
-        .section-title {
-            padding: 16px 16px 8px;
-            font-size: 13px;
-            color: #757575;
-            text-transform: uppercase;
-        }
-        
-        .setting-item {
-            padding: 16px;
-            border-bottom: 1px solid #f1f1f1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .setting-item:last-child {
-            border-bottom: none;
-        }
-        
-        .setting-title {
-            font-size: 16px;
-            font-weight: 400;
-            color: #212121;
-        }
-        
-        .setting-description {
-            font-size: 13px;
-            color: #757575;
-            margin-top: 4px;
-        }
-        
-        .arrow {
-            color: #bdbdbd;
-            font-size: 20px;
-        }
-        
-        .about-phone {
-            background-color: white;
-            display: none;
-        }
-        
-        .about-header {
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        
-        .about-title {
-            font-size: 20px;
-            font-weight: 500;
-            flex-grow: 1;
-        }
-        
-        .edit-btn {
-            color: #4285f4;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .info-item {
-            padding: 16px;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        
-        .info-label {
-            font-size: 14px;
-            color: #757575;
-        }
-        
-        .info-value {
-            font-size: 16px;
-            margin-top: 8px;
-            color: #212121;
-        }
-        
-        .divider {
-            height: 8px;
-            background-color: #f8f8f8;
-        }
-        
-        .footer {
-            padding: 16px;
-            text-align: center;
-            font-size: 14px;
-            color: #757575;
-            background-color: white;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 16px;
-        }
-        
-        .footer-link {
-            color: #4285f4;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .software-info {
-            background-color: white;
-            display: none;
-        }
-        
-        .info-block {
-            padding: 16px;
-            border-bottom: 1px solid #f1f1f1;
-        }
-        
-        .info-block-title {
-            font-size: 14px;
-            color: #757575;
-            margin-bottom: 8px;
-        }
-        
-        .info-block-content {
-            font-size: 14px;
-            color: #212121;
-            line-height: 1.6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acue Store</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #121212;
+      color: #fff;
+    }
+    header {
+      background: #1f1f1f;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo span {
+      color: #4fc3f7;
+      font-weight: bold;
+    }
+    .nav {
+      display: flex;
+      gap: 16px;
+    }
+    .nav-link {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fff;
+      border-bottom: 2px solid #4fc3f7;
+    }
+    .search-container {
+      padding: 16px;
+      text-align: center;
+    }
+    .search-container input {
+      padding: 10px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 8px;
+      border: none;
+    }
+    .category-section {
+      padding: 0 16px 24px;
+    }
+    .category-title {
+      font-size: 1.2rem;
+      margin: 24px 0 12px;
+      font-weight: 500;
+    }
+    .app-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      padding-bottom: 12px;
+    }
+    .app-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 12px;
+      width: 120px;
+      flex-shrink: 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+    }
+    .app-card:hover {
+      transform: scale(1.05);
+    }
+    .app-card i {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      color: #4fc3f7;
+    }
+    .app-card h4 {
+      font-size: 0.9rem;
+      margin: 4px 0;
+    }
+    .app-card p {
+      font-size: 0.75rem;
+      color: #bbb;
+      margin: 0 0 8px;
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      background: #4fc3f7;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    @media (max-width: 600px) {
+      .app-slider {
+        padding-left: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Main Settings Page -->
-    <div class="header">
-        <div class="back-btn" onclick="goBack()">‹</div>
-        <div>Settings</div>
+  <header>
+    <div class="logo">
+      <i class="fas fa-mobile-alt"></i> <span>Acue Store</span>
     </div>
-    
-    <div class="search-bar">
-        <div class="search-container">
-            <div class="search-icon">🔍</div>
-            <input type="text" class="search-input" placeholder="Search">
-        </div>
-    </div>
-    
-    <div class="settings-list" id="mainSettings">
-        <div class="section-title">Connections</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Wi-Fi</div>
-                <div class="setting-description">Not connected</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Bluetooth</div>
-                <div class="setting-description">Off</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Data usage</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Flight mode</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Sounds and vibration</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Sound mode</div>
-                <div class="setting-description">Sound</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Vibration intensity</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Do not disturb</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Notifications</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Notification settings</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Display</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Brightness</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Blue light filter</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Home screen</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Wallpapers and themes</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Wallpapers</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Themes</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Advanced features</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Games</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">One-handed mode</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Device maintenance</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Battery</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Storage</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Memory</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Device security</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Apps</div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">Default apps</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        <div class="setting-item">
-            <div>
-                <div class="setting-title">App permissions</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-        
-        <div class="section-title">Lock screen and security</div>
-        <div class="setting-item" onclick="showAboutPhone()">
-            <div>
-                <div class="setting-title">About phone</div>
-            </div>
-            <div class="arrow">›</div>
-        </div>
-    </div>
-    
-    <!-- About Phone Page -->
-    <div class="about-phone" id="aboutPhone">
-        <div class="about-header">
-            <div class="back-btn" onclick="hideAboutPhone()">‹</div>
-            <div class="about-title">About phone</div>
-            <div class="edit-btn">EDIT</div>
-        </div>
-        
-        <div class="info-item">
-            <div class="info-label">My phone number</div>
-            <div class="info-value">UNKNOWN</div>
-        </div>
-        
-        <div class="info-item">
-            <div class="info-label">Model number</div>
-            <div class="info-value">SM-G935F</div>
-        </div>
-        
-        <div class="info-item">
-            <div class="info-label">Serial number</div>
-            <div class="info-value">RF8H51L9TTW</div>
-        </div>
-        
-        <div class="info-item">
-            <div class="info-label">IMEI</div>
-            <div class="info-value">359948073417557</div>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <div class="info-item" onclick="showSoftwareInfo()">
-            <div class="info-label">Status</div>
-            <div class="info-value">View the SIM card status, IMEI, and other information.</div>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <div class="info-item">
-            <div class="info-label">Legal Information</div>
-        </div>
-        
-        <div class="info-item" onclick="showSoftwareInfo()">
-            <div class="info-label">Software Information</div>
-            <div class="info-value">View the currently installed Android version, baseband version, kernel version, build number, and more.</div>
-        </div>
-        
-        <div class="info-item">
-            <div class="info-label">Battery information</div>
-            <div class="info-value">View your phone's battery status, remaining power, and other information.</div>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <div class="footer">
-            <div>LOOKING FOR SOMETHING ELSE?</div>
-            <div class="footer-links">
-                <a class="footer-link">RESET</a>
-                <a class="footer-link">CONTACT US</a>
-            </div>
-            <div style="margin-top: 16px;">Galaxy S7 edge</div>
-        </div>
-    </div>
-    
-    <!-- Software Information Page -->
-    <div class="software-info" id="softwareInfo">
-        <div class="about-header">
-            <div class="back-btn" onclick="hideSoftwareInfo()">‹</div>
-            <div class="about-title">Software information</div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Android version</div>
-            <div class="info-block-content">8.0.0</div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Samsung Experience version</div>
-            <div class="info-block-content">9.0</div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Baseband version</div>
-            <div class="info-block-content">G935FXXUBEUE1</div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Kernel version</div>
-            <div class="info-block-content">
-                3.18.91-21826506-QB54355501<br>
-                dp@SWDH4606 #1<br>
-                Mon Jul 25 17:43:29 KST 2022
-            </div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Build number</div>
-            <div class="info-block-content">R16NWG935FXXUBEVG2</div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">SE for Android status</div>
-            <div class="info-block-content">
-                Enforcing<br>
-                SEPF_SM-G935F_8.0.0_0018<br>
-                Mon Jul 25 17:56:19 2022
-            </div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Knox version</div>
-            <div class="info-block-content">
-                Knox 3.1<br>
-                Knox API level 25<br>
-                TIMA 3.3.0
-            </div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Security software version</div>
-            <div class="info-block-content">
-                MDF v3.1 Release 2<br>
-                WLAN v1.0 Release 1<br>
-                VPN PP-MOD v2.1 Release 1.1<br>
-                ASKS v2.0.0 Release 200120<br>
-                FIPS BoringSSL v1.2<br>
-                FIPS SKC v1.7<br>
-                FIPS SQypio v1.0<br>
-                FIPS FMP v1.1<br>
-                SMR Jan-2021 Release 1
-            </div>
-        </div>
-        
-        <div class="info-block">
-            <div class="info-block-title">Android security patch level</div>
-            <div class="info-block-content">1 January 2021</div>
-        </div>
-    </div>
-    
-    <script>
-        function showAboutPhone() {
-            document.getElementById('mainSettings').style.display = 'none';
-            document.getElementById('aboutPhone').style.display = 'block';
-            document.getElementById('softwareInfo').style.display = 'none';
-        }
-        
-        function hideAboutPhone() {
-            document.getElementById('mainSettings').style.display = 'block';
-            document.getElementById('aboutPhone').style.display = 'none';
-        }
-        
-        function showSoftwareInfo() {
-            document.getElementById('mainSettings').style.display = 'none';
-            document.getElementById('aboutPhone').style.display = 'none';
-            document.getElementById('softwareInfo').style.display = 'block';
-        }
-        
-        function hideSoftwareInfo() {
-            document.getElementById('mainSettings').style.display = 'none';
-            document.getElementById('aboutPhone').style.display = 'block';
-            document.getElementById('softwareInfo').style.display = 'none';
-        }
-        
-        function goBack() {
-            if (document.getElementById('softwareInfo').style.display === 'block') {
-                hideSoftwareInfo();
-            } else if (document.getElementById('aboutPhone').style.display === 'block') {
-                hideAboutPhone();
-            }
-        }
-    </script>
-</body>
+    <nav class="nav">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="aboutstore.html" class="nav-link">About Store</a>
+    </nav>
+  </header>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search apps...">
+  </div>  <div class="category-section" id="appSection">
+    <!-- Categories and apps will load here -->
+  </div>  <script>
+    const apps = [
+      {
+        name: 'YouTube',
+        icon: 'fab fa-youtube',
+        description: 'Watch videos from creators around the world.',
+        category: 'Entertainment',
+        downloadUrl: 'https://apkpure.com/youtube/com.google.android.youtube/downloading'
+      },
+      {
+        name: 'TikTok',
+        icon: 'fab fa-tiktok',
+        description: 'Create and watch short videos.',
+        category: 'Entertainment',
+        downloadUrl: 'https://apkpure.com/tiktok/com.zhiliaoapp.musically/downloading'
+      },
+      {
+        name: 'Instagram',
+        icon: 'fab fa-instagram',
+        description: 'Share photos and videos.',
+        category: 'Social',
+        downloadUrl: 'https://apkpure.com/instagram/com.instagram.android/downloading'
+      },
+      {
+        name: 'Snapchat',
+        icon: 'fab fa-snapchat',
+        description: 'Chat with friends, send snaps.',
+        category: 'Social',
+        downloadUrl: 'https://apkpure.com/snapchat/com.snapchat.android/downloading'
+      },
+      {
+        name: 'Spotify',
+        icon: 'fab fa-spotify',
+        description: 'Stream your favorite music and podcasts.',
+        category: 'Entertainment',
+        downloadUrl: 'https://apkpure.com/spotify-music/com.spotify.music/downloading'
+      },
+      {
+        name: 'Discord',
+        icon: 'fab fa-discord',
+        description: 'Voice, video, and text chat app.',
+        category: 'Social',
+        downloadUrl: 'https://apkpure.com/discord-talk-chat-hang-out/com.discord/downloading'
+      }
+    ];
+
+    function renderApps(apps) {
+      const section = document.getElementById('appSection');
+      const grouped = apps.reduce((acc, app) => {
+        if (!acc[app.category]) acc[app.category] = [];
+        acc[app.category].push(app);
+        return acc;
+      }, {});
+
+      section.innerHTML = '';
+
+      Object.keys(grouped).forEach(category => {
+        const catTitle = document.createElement('h3');
+        catTitle.className = 'category-title';
+        catTitle.textContent = category;
+        section.appendChild(catTitle);
+
+        const slider = document.createElement('div');
+        slider.className = 'app-slider';
+
+        grouped[category].forEach(app => {
+          const card = document.createElement('div');
+          card.className = 'app-card';
+          card.innerHTML = `
+            <i class="${app.icon}"></i>
+            <h4>${app.name}</h4>
+            <p>${app.description}</p>
+            <a href="${app.downloadUrl}" target="_blank" class="download-btn">Download</a>
+          `;
+          slider.appendChild(card);
+        });
+
+        section.appendChild(slider);
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const val = this.value.toLowerCase();
+      const filtered = apps.filter(app => app.name.toLowerCase().includes(val));
+      renderApps(filtered);
+    });
+
+    renderApps(apps);
+  </script></body>
 </html>
