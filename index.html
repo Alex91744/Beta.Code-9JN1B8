@@ -1,213 +1,256 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acue Store</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: #121212;
-      color: #fff;
-    }
-    header {
-      background: #1f1f1f;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo span {
-      color: #4fc3f7;
-      font-weight: bold;
-    }
-    .nav {
-      display: flex;
-      gap: 16px;
-    }
-    .nav-link {
-      color: #aaa;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: #fff;
-      border-bottom: 2px solid #4fc3f7;
-    }
-    .search-container {
-      padding: 16px;
-      text-align: center;
-    }
-    .search-container input {
-      padding: 10px;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 8px;
-      border: none;
-    }
-    .category-section {
-      padding: 0 16px 24px;
-    }
-    .category-title {
-      font-size: 1.2rem;
-      margin: 24px 0 12px;
-      font-weight: 500;
-    }
-    .app-slider {
-      display: flex;
-      overflow-x: auto;
-      gap: 16px;
-      padding-bottom: 12px;
-    }
-    .app-card {
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 12px;
-      width: 120px;
-      flex-shrink: 0;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease;
-    }
-    .app-card:hover {
-      transform: scale(1.05);
-    }
-    .app-card i {
-      font-size: 2.5rem;
-      margin-bottom: 8px;
-      color: #4fc3f7;
-    }
-    .app-card h4 {
-      font-size: 0.9rem;
-      margin: 4px 0;
-    }
-    .app-card p {
-      font-size: 0.75rem;
-      color: #bbb;
-      margin: 0 0 8px;
-    }
-    .download-btn {
-      display: inline-block;
-      padding: 6px 10px;
-      font-size: 0.75rem;
-      background: #4fc3f7;
-      color: #000;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    @media (max-width: 600px) {
-      .app-slider {
-        padding-left: 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acue Store - Get Ready for a New Look!</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%);
+            --accent-color: #00FFFF;
+            --text-color: white;
+            --container-bg: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.15);
+            --box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            --button-gradient: linear-gradient(135deg, #00FFFF, #1a9c9c);
+            --button-hover-gradient: linear-gradient(135deg, #1a9c9c, #00FFFF);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Background Particle/Effect overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top left, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgPulse 10s infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        /* Main Container */
+        .maintenance-container {
+            width: 100%;
+            max-width: 700px;
+            background: var(--container-bg);
+            backdrop-filter: blur(25px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .error-code {
+            font-size: 18px;
+            color: #ffd93d;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .update-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffd93d;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .back-btn {
+            background: var(--button-gradient);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background: var(--button-hover-gradient);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .version-info {
+            font-size: 14px;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd93d;
+        }
+
+        @media (max-width: 480px) {
+            .maintenance-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .error-icon {
+                font-size: 60px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <i class="fas fa-mobile-alt"></i> <span>Acue Store</span>
+    <div class="maintenance-container">
+        <div class="error-icon">
+            <i class="fas fa-tools"></i>
+        </div>
+
+        <h1>Get Ready for a New Look!</h1>
+
+        <div class="error-code">Error Code: 503 - Maintenance Mode</div>
+
+        <div class="message">
+            <strong>Acue Store is currently down for updates</strong><br>
+            We're working hard to improve your experience and will be back online soon.
+        </div>
+
+        <div class="update-info">
+            <div class="loading-spinner"></div>
+            <p><strong>What's happening?</strong></p>
+            <p>Our team is performing essential updates to enhance security, performance, and add new features to the Acue Store platform.</p>
+        </div>
+
+        <p style="font-size: 16px; opacity: 0.8;">
+            <i class="fas fa-clock"></i> Estimated downtime: 1 hour<br>
+            <i class="fas fa-calendar"></i> Updates will be available later today
+        </p>
+
+        <a href="#" onclick="location.reload()" class="back-btn">
+            <i class="fas fa-sync-alt"></i> Refresh Page
+        </a>
+
+        <div class="version-info">
+            <p>APK Security Patch: June 1, 2025</p>
+            <p>Store UI Version: 1.0</p>
+        </div>
+
+        <div class="social-links">
+            <a href="https://twitter.com/Acuegb" target="_blank" aria-label="Follow Acuegb on Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.tiktok.com/@Acuegb" target="_blank" aria-label="Follow Acuegb on TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
     </div>
-    <nav class="nav">
-      <a href="#" class="nav-link active">Home</a>
-      <a href="aboutstore.html" class="nav-link">About Store</a>
-    </nav>
-  </header>
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search apps...">
-  </div>  <div class="category-section" id="appSection">
-    <!-- Categories and apps will load here -->
-  </div>  <script>
-    const apps = [
-      {
-        name: 'YouTube',
-        icon: 'fab fa-youtube',
-        description: 'Watch videos from creators around the world.',
-        category: 'Entertainment',
-        downloadUrl: 'https://apkpure.com/youtube/com.google.android.youtube/downloading'
-      },
-      {
-        name: 'TikTok',
-        icon: 'fab fa-tiktok',
-        description: 'Create and watch short videos.',
-        category: 'Entertainment',
-        downloadUrl: 'https://apkpure.com/tiktok/com.zhiliaoapp.musically/downloading'
-      },
-      {
-        name: 'Instagram',
-        icon: 'fab fa-instagram',
-        description: 'Share photos and videos.',
-        category: 'Social',
-        downloadUrl: 'https://apkpure.com/instagram/com.instagram.android/downloading'
-      },
-      {
-        name: 'Snapchat',
-        icon: 'fab fa-snapchat',
-        description: 'Chat with friends, send snaps.',
-        category: 'Social',
-        downloadUrl: 'https://apkpure.com/snapchat/com.snapchat.android/downloading'
-      },
-      {
-        name: 'Spotify',
-        icon: 'fab fa-spotify',
-        description: 'Stream your favorite music and podcasts.',
-        category: 'Entertainment',
-        downloadUrl: 'https://apkpure.com/spotify-music/com.spotify.music/downloading'
-      },
-      {
-        name: 'Discord',
-        icon: 'fab fa-discord',
-        description: 'Voice, video, and text chat app.',
-        category: 'Social',
-        downloadUrl: 'https://apkpure.com/discord-talk-chat-hang-out/com.discord/downloading'
-      }
-    ];
 
-    function renderApps(apps) {
-      const section = document.getElementById('appSection');
-      const grouped = apps.reduce((acc, app) => {
-        if (!acc[app.category]) acc[app.category] = [];
-        acc[app.category].push(app);
-        return acc;
-      }, {});
+    <script>
+        // Auto-refresh every 5 minutes
+        setTimeout(function() {
+            location.reload();
+        }, 300000);
 
-      section.innerHTML = '';
-
-      Object.keys(grouped).forEach(category => {
-        const catTitle = document.createElement('h3');
-        catTitle.className = 'category-title';
-        catTitle.textContent = category;
-        section.appendChild(catTitle);
-
-        const slider = document.createElement('div');
-        slider.className = 'app-slider';
-
-        grouped[category].forEach(app => {
-          const card = document.createElement('div');
-          card.className = 'app-card';
-          card.innerHTML = `
-            <i class="${app.icon}"></i>
-            <h4>${app.name}</h4>
-            <p>${app.description}</p>
-            <a href="${app.downloadUrl}" target="_blank" class="download-btn">Download</a>
-          `;
-          slider.appendChild(card);
-        });
-
-        section.appendChild(slider);
-      });
-    }
-
-    document.getElementById('searchInput').addEventListener('input', function () {
-      const val = this.value.toLowerCase();
-      const filtered = apps.filter(app => app.name.toLowerCase().includes(val));
-      renderApps(filtered);
-    });
-
-    renderApps(apps);
-  </script></body>
+        // Add some dynamic content
+        setInterval(function() {
+            const spinner = document.querySelector('.loading-spinner');
+            if (spinner) {
+                spinner.style.borderTopColor = spinner.style.borderTopColor === 'rgb(255, 217, 61)' ? 'white' : '#ffd93d';
+            }
+        }, 2000);
+    </script>
+</body>
 </html>
