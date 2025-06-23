@@ -121,16 +121,6 @@ const appsData = [
         downloadUrl: 'https://apkpure.com/twitter/com.twitter.android/downloading'
     },
     {
-        id: 'discord',
-        name: 'Discord',
-        developer: 'Discord Inc.',
-        category: 'social',
-        rating: 4.2,
-        description: 'Chat, hang out, and stay close with your friends and communities.',
-        icon: 'fab fa-discord',
-        downloadUrl: 'https://apkpure.com/discord-talk-video-chat/com.discord/downloading'
-    },
-    {
         id: 'amazon',
         name: 'Amazon Shopping',
         developer: 'Amazon Mobile LLC',
