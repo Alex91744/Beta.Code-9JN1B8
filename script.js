@@ -22,7 +22,6 @@ class AcueStore {
         this.renderHotApps();
         this.renderApps();
         this.updateActiveNavLink();
-        this.initThemeToggle();
         this.initBadgeModal();
         this.initLGWingSupport();
     }
@@ -334,7 +333,7 @@ class AcueStore {
             <div class="browser-error-content">
                 <div class="browser-error-header">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Error 671: Browser Required</h3>
+                    <h3>Error 671: Browser Not Supported</h3>
                 </div>
                 <div class="browser-error-body">
                     <p>Please have a Web Browser ready to download the app.</p>
@@ -527,18 +526,18 @@ class AcueStore {
             },
             'store-info': {
                 title: 'About Store',
-                icon: 'ℹ️',
+                icon: 'ⓘ',
                 content: `
                     <div class="store-info-content">
                         <p><strong>Store Information</strong></p>
                         <div class="info-grid">
                             <div class="info-item">
-                                <span class="info-label">Store UI:</span>
-                                <span class="info-value">2.0</span>
+                                <span class="info-label">Store UI (Glass):</span>
+                                <span class="info-value">3.0</span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label">Security Patch:</span>
-                                <span class="info-value">June 8, 2025</span>
+                                <span class="info-value">June 22, 2025</span>
                             </div>
                             <div class="info-item">
                                 <span class="info-label">ASPFU Version:</span>
@@ -546,7 +545,7 @@ class AcueStore {
                             </div>
                             <div class="info-item">
                                 <span class="info-label">Axcu Build:</span>
-                                <span class="info-value">S6000Y25MJD8SUZO</span>
+                                <span class="info-value">S6000Y25MJD8SU2O</span>
                             </div>
                         </div>
                         <p>Acue Store provides safe and verified APK downloads from APKPure. All apps are scanned for security before being made available.</p>
