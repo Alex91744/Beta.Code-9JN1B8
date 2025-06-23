@@ -2,29 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acue Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <title>Store UI (Glass) 3.0</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modal styles */
+        .popup-modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 20px;
+        }
+        .popup-content {
+            background: rgba(255, 255, 255, 0.2); /* Glassy background */
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            margin: auto;
+            backdrop-filter: blur(10px); /* Blur effect for glassy look */
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+        }
+        .popup-content h2 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+        .popup-content .twitter-link {
+            color: deepskyblue; 
+            text-decoration: none;
+        }
+        #closeModal {
+            background-color: deepskyblue; /* Button color */
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 5px; 
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <!-- LG Wing Dual Screen Support -->
-    <div id="lgWingContainer" class="lg-wing-container">
-        <!-- Main Display Content -->
-        <div id="mainDisplay" class="main-display">
-            <div class="content-wrapper">
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-mobile-alt glass-icon"></i>
                     <span>Acue Store</span>
                 </div>
 
                 <div class="search-container">
-                    <i class="fas fa-search search-icon"></i>
                     <input type="text" id="searchInput" class="search-input" placeholder="Search apps...">
                 </div>
 
@@ -39,20 +75,17 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main">
         <div class="container">
-            <!-- Hero Section -->
             <section class="hero">
                 <div class="hero-content">
                     <h1> </h1>
-                    <p>Welcome to Acue Store.</p> 
+                    <p>Welcome to Acue Store.</p>
                     <p>Disclaimer: Some apps may be unstable</p>
-                    <p>Version: Store Ui 2.0</p>
+                    <p>Version: Store UI (Glass) 3.0</p>
                 </div>
             </section>
 
-            <!-- Categories -->
             <section class="categories-section">
                 <h2 class="section-title">Categories</h2>
                 <div class="categories-grid">
@@ -83,31 +116,25 @@
                 </div>
             </section>
 
-            <!-- Hot Apps -->
             <section class="hot-apps-section">
                 <h2 class="section-title">🔥 Hot | Recommended apps </h2>
                 <div class="hot-apps-container">
                     <div class="hot-apps-scroll" id="hotAppsGrid">
-                        <!-- Hot apps will be dynamically loaded here -->
                     </div>
                 </div>
             </section>
 
-            <!-- Featured Apps -->
             <section class="featured-section">
                 <h2 class="section-title">Featured Apps</h2>
                 <div class="apps-grid" id="appsGrid">
-                    <!-- Apps will be dynamically loaded here -->
                 </div>
             </section>
 
-            <!-- Loading Indicator -->
             <div class="loading" id="loading" style="display: none;">
                 <i class="fas fa-spinner fa-spin"></i>
                 <span>Loading apps...</span>
             </div>
 
-            <!-- No Results Message -->
             <div class="no-results" id="noResults" style="display: none;">
                 <i class="fas fa-search"></i>
                 <h3>No apps found</h3>
@@ -116,7 +143,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -149,55 +175,33 @@
         </div>
     </footer>
 
-    <!-- Badge Modal -->
-    <div id="badgeModal" class="badge-modal">
-        <div class="badge-modal-content">
-            <button class="badge-modal-close" id="badgeModalClose" type="button" onclick="window.acueStore && window.acueStore.hideBadgeModal()">
-                ✕
-            </button>
-            <div class="badge-modal-header">
-                <span class="badge-modal-icon" id="badgeModalIcon"></span>
-                <h3 class="badge-modal-title" id="badgeModalTitle"></h3>
-            </div>
-            <div class="badge-modal-body" id="badgeModalBody"></div>
+    <!-- Popup Modal -->
+    <div class="popup-modal" id="popupModal">
+        <div class="popup-content">
+            <h2>⚠️</h2>
+            <p>Please be advised that this version of the store is a development beta and may contain unforeseen bugs.</p>
+            <p>Please report any identified bugs here: 
+                <a href="https://x.com/acuegb" class="twitter-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </p>
+            <button id="closeModal">Close</button>
         </div>
-    </div>
-
-        </div>
-    </div>
-    
-    <!-- LG Wing Secondary Display (Virtual Touchpad) -->
-    <div id="secondaryDisplay" class="secondary-display">
-        <div class="touchpad-container">
-            <div class="touchpad" id="virtualTouchpad">
-                <div class="touchpad-cursor" id="touchpadCursor"></div>
-                <div class="touchpad-overlay">
-                    <div class="touchpad-instructions">
-                        <i class="fas fa-hand-pointer"></i>
-                        <span>Virtual Touchpad</span>
-                        <small>Move to control cursor</small>
-                    </div>
-                </div>
-            </div>
-            <div class="touchpad-buttons">
-                <button class="touchpad-btn left-click" id="leftClick">
-                    <i class="fas fa-mouse-pointer"></i>
-                    Left
-                </button>
-                <button class="touchpad-btn right-click" id="rightClick">
-                    <i class="fas fa-mouse"></i>
-                    Right
-                </button>
-                <button class="touchpad-btn scroll-mode" id="scrollMode">
-                    <i class="fas fa-arrows-alt-v"></i>
-                    Scroll
-                </button>
-            </div>
-        </div>
-    </div>
     </div>
 
     <script src="apps-config.js"></script>
     <script src="script.js"></script>
+    
+    <script>
+        // Show the modal on page load
+        window.onload = function() {
+            document.getElementById('popupModal').style.display = 'flex';
+        };
+
+        // Close modal when close button is clicked
+        document.getElementById("closeModal").onclick = function() {
+            document.getElementById('popupModal').style.display = 'none';
+        };
+    </script>
 </body>
 </html>
