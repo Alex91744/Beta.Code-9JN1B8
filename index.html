@@ -20,10 +20,10 @@
           <input type="text" id="searchInput" class="search-input" placeholder="Search apps..." />
         </div>
         <nav class="nav">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#games" class="nav-link">Games</a>
-          <a href="#apps" class="nav-link">Apps</a>
-          <a href="#categories" class="nav-link">Categories</a>
+          <a href="#home" class="nav-link" onclick="showMainContent()">Home</a>
+          <a href="#games" class="nav-link" onclick="showMainContent()">Games</a>
+          <a href="#apps" class="nav-link" onclick="showMainContent()">Apps</a>
+          <a href="#categories" class="nav-link" onclick="showMainContent()">Categories</a>
           <a href="#about" class="nav-link" onclick="showAboutStore()">About Store</a>
         </nav>
       </div>
@@ -37,7 +37,7 @@
           <h1></h1>
           <p>Welcome to Acue Store.</p>
           <p>Disclaimer: Some apps may be unstable</p>
-          <p>Store UI for Beta Testers</p>
+          <p>Version: Store UI (Glass) 3.0</p>
         </div>
       </section>
 
@@ -115,10 +115,10 @@
         <div class="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#apps">Apps</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#categories">Categories</a></li>
+            <li><a href="#home" onclick="showMainContent()">Home</a></li>
+            <li><a href="#apps" onclick="showMainContent()">Apps</a></li>
+            <li><a href="#games" onclick="showMainContent()">Games</a></li>
+            <li><a href="#categories" onclick="showMainContent()">Categories</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -169,6 +169,13 @@
     function showAboutStore() {
       document.getElementById("mainContent").style.display = "none";
       document.getElementById("aboutStorePage").style.display = "block";
+      window.scrollTo(0, 0);
+    }
+
+    // Show main content
+    function showMainContent() {
+      document.getElementById("aboutStorePage").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
       window.scrollTo(0, 0);
     }
   </script>
