@@ -1,207 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <title>Store UI (Glass) 3.0</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Modal styles */
-        .popup-modal {
-            display: none; /* Hidden by default */
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            padding: 20px;
-        }
-        .popup-content {
-            background: rgba(255, 255, 255, 0.2); /* Glassy background */
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            margin: auto;
-            backdrop-filter: blur(10px); /* Blur effect for glassy look */
-            border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
-        }
-        .popup-content h2 {
-            margin: 0 0 10px;
-            font-size: 1.5rem;
-        }
-        .popup-content .twitter-link {
-            color: deepskyblue; 
-            text-decoration: none;
-        }
-        #closeModal {
-            background-color: deepskyblue; /* Button color */
-            color: white; 
-            border: none; 
-            padding: 10px 15px; 
-            border-radius: 5px; 
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <title>Acue Store</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-mobile-alt glass-icon"></i>
-                    <span>Acue Store</span>
-                </div>
-
-                <div class="search-container">
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search apps...">
-                </div>
-
-                <nav class="nav">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#games" class="nav-link">Games</a>
-                    <a href="#apps" class="nav-link">Apps</a>
-                    <a href="#categories" class="nav-link">Categories</a>
-                    <a href="#about" class="nav-link" id="aboutStoreLink">About Store</a>
-                </nav>
-            </div>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-mobile-alt glass-icon"></i>
+          <span>Acue Store</span>
         </div>
-    </header>
-
-    <main class="main">
-        <div class="container">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1> </h1>
-                    <p>Welcome to Acue Store.</p>
-                    <p>Disclaimer: Some apps may be unstable</p>
-                    <p>Version: Store UI (Glass) 3.0</p>
-                </div>
-            </section>
-
-            <section class="categories-section">
-                <h2 class="section-title">Categories</h2>
-                <div class="categories-grid">
-                    <div class="category-card" data-category="social">
-                        <i class="fas fa-users"></i>
-                        <span>Social Media</span>
-                    </div>
-                    <div class="category-card" data-category="entertainment">
-                        <i class="fas fa-play-circle"></i>
-                        <span>Entertainment</span>
-                    </div>
-                    <div class="category-card" data-category="games">
-                        <i class="fas fa-gamepad"></i>
-                        <span>Games</span>
-                    </div>
-                    <div class="category-card" data-category="productivity">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Productivity</span>
-                    </div>
-                    <div class="category-card" data-category="photography">
-                        <i class="fas fa-camera"></i>
-                        <span>Photography</span>
-                    </div>
-                    <div class="category-card" data-category="music">
-                        <i class="fas fa-music"></i>
-                        <span>Music</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="hot-apps-section">
-                <h2 class="section-title">🔥 Hot | Recommended apps </h2>
-                <div class="hot-apps-container">
-                    <div class="hot-apps-scroll" id="hotAppsGrid">
-                    </div>
-                </div>
-            </section>
-
-            <section class="featured-section">
-                <h2 class="section-title">Featured Apps</h2>
-                <div class="apps-grid" id="appsGrid">
-                </div>
-            </section>
-
-            <div class="loading" id="loading" style="display: none;">
-                <i class="fas fa-spinner fa-spin"></i>
-                <span>Loading apps...</span>
-            </div>
-
-            <div class="no-results" id="noResults" style="display: none;">
-                <i class="fas fa-search"></i>
-                <h3>No apps found</h3>
-                <p>Try adjusting your search terms or browse different categories.</p>
-            </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search apps..." />
         </div>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Acue Store</h3>
-                    <p>Your trusted source for Android apps</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#apps">Apps</a></li>
-                        <li><a href="#games">Games</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#help">Help Center</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Acue Store. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Popup Modal -->
-    <div class="popup-modal" id="popupModal">
-        <div class="popup-content">
-            <h2>⚠️</h2>
-            <p>Please be advised that this version of the store is a development beta and may contain unforeseen bugs.</p>
-            <p>Please report any identified bugs here: 
-                <a href="https://x.com/acuegb" class="twitter-link" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </p>
-            <button id="closeModal">Close</button>
-        </div>
+        <nav class="nav">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#games" class="nav-link">Games</a>
+          <a href="#apps" class="nav-link">Apps</a>
+          <a href="#categories" class="nav-link">Categories</a>
+          <a href="#about" class="nav-link" onclick="showAboutStore()">About Store</a>
+        </nav>
+      </div>
     </div>
+  </header>
 
-    <script src="apps-config.js"></script>
-    <script src="script.js"></script>
-    
-    <script>
-        // Show the modal on page load
-        window.onload = function() {
-            document.getElementById('popupModal').style.display = 'flex';
-        };
+  <main class="main" id="mainContent">
+    <div class="container">
+      <section class="hero">
+        <div class="hero-content">
+          <h1></h1>
+          <p>Welcome to Acue Store.</p>
+          <p>Disclaimer: Some apps may be unstable</p>
+          <p>Store UI for Beta Testers</p>
+        </div>
+      </section>
 
-        // Close modal when close button is clicked
-        document.getElementById("closeModal").onclick = function() {
-            document.getElementById('popupModal').style.display = 'none';
-        };
-    </script>
+      <section class="categories-section">
+        <h2 class="section-title">Categories</h2>
+        <div class="categories-grid">
+          <div class="category-card" data-category="social">
+            <i class="fas fa-users"></i><span>Social Media</span>
+          </div>
+          <div class="category-card" data-category="entertainment">
+            <i class="fas fa-play-circle"></i><span>Entertainment</span>
+          </div>
+          <div class="category-card" data-category="games">
+            <i class="fas fa-gamepad"></i><span>Games</span>
+          </div>
+          <div class="category-card" data-category="productivity">
+            <i class="fas fa-briefcase"></i><span>Productivity</span>
+          </div>
+          <div class="category-card" data-category="photography">
+            <i class="fas fa-camera"></i><span>Photography</span>
+          </div>
+          <div class="category-card" data-category="music">
+            <i class="fas fa-music"></i><span>Music</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="hot-apps-section">
+        <h2 class="section-title">🔥 Hot | Recommended apps</h2>
+        <div class="hot-apps-container">
+          <div class="hot-apps-scroll" id="hotAppsGrid"></div>
+        </div>
+      </section>
+
+      <section class="featured-section">
+        <h2 class="section-title">Featured Apps</h2>
+        <div class="apps-grid" id="appsGrid"></div>
+      </section>
+
+      <div class="loading" id="loading" style="display: none;">
+        <i class="fas fa-spinner fa-spin"></i>
+        <span>Loading apps...</span>
+      </div>
+
+      <div class="no-results" id="noResults" style="display: none;">
+        <i class="fas fa-search"></i>
+        <h3>No apps found</h3>
+        <p>Try adjusting your search terms or browse different categories.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- About Store Page -->
+  <section id="aboutStorePage" class="container" style="display: none; margin-top: 150px; padding: 1.5rem;">
+    <h2>About Store</h2>
+    <div class="info-grid">
+      <div class="info-item"><strong>Store UI:</strong> (Glass) 3.0</div>
+      <div class="info-item"><strong>Security Patch:</strong> June 8, 2025</div>
+      <div class="info-item"><strong>ASPFU Version:</strong> Alpha-S6000ASPFUV209</div>
+      <div class="info-item"><strong>Axcu Build:</strong> S6000Y25MJD8SUZO</div>
+    </div>
+    <p style="margin-top:1rem;">
+      Acue Store provides safe and verified APK downloads from APKPure.
+      All apps are scanned for security before being made available.
+    </p>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Acue Store</h3>
+          <p>Your trusted source for Android apps</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#apps">Apps</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#categories">Categories</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Acue Store. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="popup-modal" id="popupModal">
+    <div class="popup-content">
+      <h2>⚠️</h2>
+      <p>This is a beta version. Bugs may occur.</p>
+      <p>Report issues: 
+        <a href="https://x.com/acuegb" target="_blank" class="twitter-link">
+          <i class="fab fa-twitter"></i> @acuegb
+        </a>
+      </p>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="apps-config.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Show popup modal on load
+    window.onload = function () {
+      document.getElementById('popupModal').style.display = 'flex';
+    };
+
+    // Close modal
+    document.getElementById("closeModal").onclick = function () {
+      document.getElementById('popupModal').style.display = 'none';
+    };
+
+    // Show About Store page
+    function showAboutStore() {
+      document.getElementById("mainContent").style.display = "none";
+      document.getElementById("aboutStorePage").style.display = "block";
+      window.scrollTo(0, 0);
+    }
+  </script>
 </body>
 </html>
